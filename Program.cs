@@ -1,13 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Schema;
 using System.Globalization;
 
 namespace picu
@@ -18,9 +11,7 @@ namespace picu
         {
             ToDo todo = new ToDo();
             PicuParser parser = new PicuParser(todo);
-            
-            // 
-            string path = @"C:\Users\camde\source\repos\picu\ToDo\List.txt";
+            string path = @"C:\\Users\\camde\\source\\repos\\picu\\ToDo\\List.txt";
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path)) { sw.WriteLine(""); }
