@@ -237,7 +237,7 @@ namespace picu
             today = today.AddDays(-TimeStuff.DOWToInt(today.DayOfWeek));
             dt = dt.AddDays(-TimeStuff.DOWToInt(dt.DayOfWeek));
             int weekOffset = (dt - today).Days / 7;
-            return new NextThurs(weekOffset, dow);
+            return new NextThurs(weekOffset + 1, dow);
         }
         public int WeekOffset;
         public DayOfWeek DOWOffset;
