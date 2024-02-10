@@ -141,6 +141,7 @@ namespace picu
         /// <param name="userInput">Should be formatted as {subject}, {name}, {due date}. Use a '#' in front of the due date if expressing NextThurs time</param>
         private void NewAssignment(string userInput)
         {
+            Console.WriteLine(userInput);
             string[] split = userInput.Split(',');
             if (split.Length != 3)
             {
@@ -151,23 +152,26 @@ namespace picu
             string name = split[1].Trim();
             string dueDateTemp = split[2].Trim();
             DateTime dueDate;
+            /*
             if (dueDateTemp[0] == '#')
             {
                 dueDateTemp = dueDateTemp.Remove(0, 1);
+                Console.WriteLine(new NextThurs(dueDateTemp));
                 dueDate = NextThurs.NextThursToDT(new NextThurs(dueDateTemp));
+                Console.WriteLine(dueDate);
             }
             else
+            {*/
+            try
             {
-                try
-                {
-                    dueDate = DateTime.Parse(dueDateTemp);
-                }
-                catch
-                {
-                    Console.WriteLine("Not a valid date format!");
-                    return;
-                }
+                dueDate = DateTime.Parse(dueDateTemp);
             }
+            catch
+            {
+                Console.WriteLine("Not a valid date format!");
+                return;
+            }
+            //}
             ToDoList.AddAssignment(new Assignment(dueDate, name, subject));
         }
 
@@ -193,6 +197,7 @@ namespace picu
         public ToDo ToDoList;
     }
 
+    /*
     /// <summary>
     /// The Next Thursday format of representing a day expresses time in relation to today
     /// rather than to the calender. The week is assumed to begin on Monday
@@ -244,15 +249,18 @@ namespace picu
 
         public override string ToString() => $"{WeekOffset} {DOWOffset} ";
     }
+    */
 
     public struct Assignment
     {
+        /*
         public Assignment(NextThurs dueDate, string name, string subject)
         {
             DueDate = NextThurs.NextThursToDT(dueDate);
             Name = name;
             Subject = subject;
         }
+        */
 
         public Assignment(DateTime dueDate, string name, string subject)
         {
@@ -265,7 +273,7 @@ namespace picu
         public string Name;
         public string Subject;
 
-        public override string ToString() => $"{Subject}: {Name}, {NextThurs.DTToNextThurs(DueDate)} ";
+        public override string ToString() => $"{Subject}: {Name}, {DueDate.ToString("M/d")} {DueDate.DayOfWeek}";
     }
 
     public class ToDo

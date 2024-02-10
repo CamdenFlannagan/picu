@@ -1,2 +1,6 @@
-C Lit: Read "How to Mark a Book", 00/11/2024
-C Lit: Read "First Voyage", 00/11/2024
+HPK: Mandatory Reporter, 13/11/2024
+HPK: W-9, 13/11/2024
+MGC: Registration Form, 16/11/2024
+MUTC: Christian Music Essay, 00/14/2024
+thing: stuff, 00/16/2024
+Soft Dev: Project 3 Report, 00/16/2024
